@@ -99,10 +99,37 @@ const viewBook = async(req,res) => {
     }
 }
 
+const buscarpornombre = async(req,res) => {
+    const nombre = req.params.name
+
+    try {
+        const dbLibro = await Libro.find({})
+        const filtrado = []
+        dbLibro.filter(libro =>{
+            if(libro.name.toLowerCase().includes(nombre.toLowerCase())){
+                filtrado.push(libro)
+            }
+        })
+
+        return res.status(200).json({
+            ok:true,
+            Libros: filtrado
+        })
+    } catch (error) {
+        return res.status(400).json({
+            ok:false,
+            msg:'No se encontro ese libro',
+            error
+        })
+    }
+
+}
+
 module.exports = {
     createBook,
     updateBook,
     deleteBook,
     viewBooks,
-    viewBook
+    viewBook,
+    buscarpornombre
 }

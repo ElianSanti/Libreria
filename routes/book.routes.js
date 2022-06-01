@@ -1,5 +1,5 @@
 const {Router} = require('express');
-const { createBook, updateBook, deleteBook, viewBooks, viewBook } = require('../controllers/book.controller');
+const { createBook, updateBook, deleteBook, viewBooks, viewBook, buscarpornombre } = require('../controllers/book.controller');
 
 
 const router = Router();
@@ -19,4 +19,7 @@ router.get('/', viewBooks)
 
 //TODO Mostrar libro en especifico
 router.get('/:id', viewBook)
+
+//TODO Buscar por nombre
+router.get('/name/:name', buscarpornombre)
 module.exports = router;

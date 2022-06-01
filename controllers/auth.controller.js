@@ -43,7 +43,7 @@ const crearUsuario = async (req, res = response )=> {
 
 
     } catch (error) {
-        console.log(error)
+        
         return res.status(400).json({
             ok: false,
             msg:'Hubo un error, intente de nuevo'
@@ -108,7 +108,7 @@ const validarToken = async (req, res = response )=>{
     const dbUser = await Usuario.findById(uid)
 
     const token = await generarJWT(uid, dbUser.name)
-    console.log('Holaaaa',uid,dbUser.name,dbUser.email)
+    
     return res.status(201).json({
         ok:true,
         uid,

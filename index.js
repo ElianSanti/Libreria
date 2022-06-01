@@ -26,9 +26,9 @@ app.use( '/api/auth', require('./routes/auth.routes'));
 app.use('/api/book', require('./routes/book.routes'));
 
 //Mostrar demas rutas
-// app.get('*',(req,res)=>{
-//     res.sendFile(path.resolve(__dirname, 'public/index.html') );
-// })
+app.get('*',(req,res)=>{
+    res.sendFile(path.resolve(__dirname, 'public/index.html') );
+})
 
 
 //Asignar puerto
